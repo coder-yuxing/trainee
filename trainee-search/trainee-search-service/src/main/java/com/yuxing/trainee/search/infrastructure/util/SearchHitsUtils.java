@@ -1,5 +1,6 @@
 package com.yuxing.trainee.search.infrastructure.util;
 
+import com.yuxing.trainee.common.core.Pager;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;

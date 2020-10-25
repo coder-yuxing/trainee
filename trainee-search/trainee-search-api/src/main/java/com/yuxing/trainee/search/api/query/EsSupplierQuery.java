@@ -1,15 +1,17 @@
 package com.yuxing.trainee.search.api.query;
 
+import com.yuxing.trainee.common.core.BaseQuery;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * @author yuxing
+ */
 @Data
-public class EsSupplierQuery {
-
-    private Integer page;
-
-    private Integer rows;
+@EqualsAndHashCode(callSuper = true)
+public class EsSupplierQuery extends BaseQuery {
 
     /**
      * 类型

@@ -1,4 +1,4 @@
-package com.yuxing.trainee.search.infrastructure.util;
+package com.yuxing.trainee.common.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

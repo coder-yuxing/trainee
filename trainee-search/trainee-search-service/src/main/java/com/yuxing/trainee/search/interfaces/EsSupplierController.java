@@ -6,7 +6,6 @@ import com.yuxing.trainee.search.api.command.UpdateEsSupplierCommand;
 import com.yuxing.trainee.search.api.dto.EsSupplierDTO;
 import com.yuxing.trainee.search.api.query.EsSupplierQuery;
 import com.yuxing.trainee.search.application.facade.EsSupplierFacadeService;
-import com.yuxing.trainee.search.infrastructure.util.Pager;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

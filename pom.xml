@@ -19,6 +19,8 @@
     <description>练习项目</description>
 
     <modules>
+        <!-- 各模块公共依赖     -->
+        <module>trainee-common</module>
         <!-- 搜索服务 -->
         <module>trainee-search</module>
     </modules>

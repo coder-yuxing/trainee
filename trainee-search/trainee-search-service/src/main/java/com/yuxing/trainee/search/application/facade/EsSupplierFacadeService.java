@@ -6,7 +6,6 @@ import com.yuxing.trainee.search.api.command.DeleteEsSupplierCommand;
 import com.yuxing.trainee.search.api.command.UpdateEsSupplierCommand;
 import com.yuxing.trainee.search.api.dto.EsSupplierDTO;
 import com.yuxing.trainee.search.api.query.EsSupplierQuery;
-import com.yuxing.trainee.search.infrastructure.util.Pager;
 
 /**
  * supplier es 门面服务接口

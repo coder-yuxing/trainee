@@ -8,7 +8,6 @@ import com.yuxing.trainee.search.api.query.EsSupplierQuery;
 import com.yuxing.trainee.search.application.assembler.EsSupplierAssembler;
 import com.yuxing.trainee.search.application.facade.EsSupplierFacadeService;
 import com.yuxing.trainee.search.domain.entity.EsSupplier;
-import com.yuxing.trainee.search.infrastructure.util.Pager;
 import com.yuxing.trainee.search.infrastructure.util.SearchHitsUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
