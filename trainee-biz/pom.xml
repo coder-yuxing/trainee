@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yuxing</groupId>
-        <artifactId>trainee-search</artifactId>
+        <artifactId>trainee</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
-    <artifactId>trainee-search-api</artifactId>
+    <artifactId>trainee-biz</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>trainee-search-api</name>
-    <description>搜索服务api</description>
+    <name>trainee-biz</name>
+    <description>业务服务</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.yuxing</groupId>
-            <artifactId>trainee-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <modules>
+        <!-- 供应商服务模块 -->
+        <module>trainee-supplier</module>
+        <!-- 秒杀项目      -->
+        <module>trainee-miaosha</module>
+    </modules>
+
 
     <build>
         <plugins>
