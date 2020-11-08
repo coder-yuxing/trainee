@@ -20,9 +20,10 @@ public class Result<T> implements Serializable {
     public Result() {
     }
 
-    public Result(ResultCode resultCode) {
-        this.code = resultCode.getCode();
-        this.message = resultCode.getMessage();
+    public Result(BaseEnum base) {
+        BaseResult result = base.toResult();
+        this.code = result.getCode();
+        this.message = result.getMessage();
     }
 
     public Result(Integer code, String message, T data) {
@@ -47,20 +48,22 @@ public class Result<T> implements Serializable {
         return restResult(ResultCode.BAD_REQUEST);
     }
 
-    public static <T> Result<T> failed(ResultCode resultCode) {
-        return restResult(resultCode);
+    public static <T> Result<T> failed(BaseEnum base) {
+        return restResult(base);
     }
 
     public static <T> Result<T> failed(String msg) {
         return restResult(null, ResultCode.BAD_REQUEST.getCode(), msg);
     }
 
-    private static <T> Result<T> restResult(T data, ResultCode resultCode) {
-        return restResult(data, resultCode.getCode(), resultCode.getMessage());
+    private static <T> Result<T> restResult(T data, BaseEnum base) {
+        BaseResult result = base.toResult();
+        return restResult(data, result.getCode(), result.getMessage());
     }
 
-    private static <T> Result<T> restResult(ResultCode resultCode) {
-        return restResult(null, resultCode.getCode(), resultCode.getMessage());
+    private static <T> Result<T> restResult(BaseEnum base) {
+        BaseResult result = base.toResult();
+        return restResult(null, result.getCode(), result.getMessage());
     }
 
     private static <T> Result<T> restResult(T data, int code, String msg) {

@@ -1,7 +1,7 @@
 package com.yuxing.trainee.auth.domain.service;
 
-import com.yuxing.trainee.auth.constant.MessageConstant;
 import com.yuxing.trainee.auth.domain.entity.SecurityUser;
+import com.yuxing.trainee.auth.infrastructure.constant.ResultCode;
 import com.yuxing.trainee.auth.infrastructure.rpc.UserRemoteService;
 import com.yuxing.trainee.uac.api.dto.UserDTO;
 import lombok.AllArgsConstructor;
@@ -30,13 +30,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserDTO user = userRemoteService.getByPhone(username);
         SecurityUser securityUser = new SecurityUser(user);
         if (!securityUser.isEnabled()) {
-            throw new DisabledException(MessageConstant.ACCOUNT_DISABLED);
+            throw new DisabledException(ResultCode.ACCOUNT_DISABLED.getMessage());
         } else if (!securityUser.isAccountNonLocked()) {
-            throw new LockedException(MessageConstant.ACCOUNT_LOCKED);
+            throw new LockedException(ResultCode.ACCOUNT_LOCKED.getMessage());
         } else if (!securityUser.isAccountNonExpired()) {
-            throw new AccountExpiredException(MessageConstant.ACCOUNT_EXPIRED);
+            throw new AccountExpiredException(ResultCode.ACCOUNT_EXPIRED.getMessage());
         } else if (!securityUser.isCredentialsNonExpired()) {
-            throw new CredentialsExpiredException(MessageConstant.CREDENTIALS_EXPIRED);
+            throw new CredentialsExpiredException(ResultCode.CREDENTIALS_EXPIRED.getMessage());
         }
         return securityUser;
     }

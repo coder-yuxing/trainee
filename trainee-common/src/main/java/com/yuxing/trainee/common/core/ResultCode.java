@@ -5,7 +5,7 @@ package com.yuxing.trainee.common.core;
  *
  * @author yuxing
  */
-public enum ResultCode {
+public enum ResultCode implements BaseEnum {
 
     /* 成功 */
     SUCCESS(1, "success"),
@@ -45,5 +45,10 @@ public enum ResultCode {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public BaseResult toResult() {
+        return new BaseResult(this.code, this.message);
     }
 }
