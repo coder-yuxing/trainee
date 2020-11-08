@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuxing.trainee.uac.infrastructure.dao.mapper.UserRoleRelationMapper">
+    <resultMap id="BaseResultMap" type="com.yuxing.trainee.uac.infrastructure.dao.model.UserRoleRelationPO">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="client_id" property="clientId"/>
+        <result column="role_id" property="roleId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_id, client_id, role_id
+    </sql>
+
+    <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_user_role_relation
+        WHERE
+            id = #{id}
+    </select>
+
+    <resultMap id="UserPermissionInClient" type="com.yuxing.trainee.uac.infrastructure.dao.model.ClientPermissionPO">
+        <result column="permission_id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="client_id" property="clientId"/>
+        <result column="code" property="code"/>
+    </resultMap>
+
+    <select id="listPermByClientId" resultMap="UserPermissionInClient">
+        select
+            t1.client_id, t2.permission_id, t3.name, t3.code
+        from
+            uac_user_role_relation t1
+            join uac_role_permission_relation t2 on t2.role_id = t1.id
+            join uac_client_permission t3 on t3.id = t2.permission_id
+        where
+            t1.user_id = #{userId}
+            AND t1.client_id = #{clientId}
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM
+            uac_user_role_relation
+        WHERE
+            id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserRoleRelationPO" useGeneratedKeys="true" keyProperty="id">
+        insert into uac_user_role_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="clientId != null">
+                client_id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="clientId != null">
+                #{clientId},
+            </if>
+            <if test="roleId != null">
+                #{roleId},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserRoleRelationPO">
+        UPDATE uac_user_role_relation
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="clientId != null">
+                client_id = #{clientId},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

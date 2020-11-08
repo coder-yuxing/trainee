@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuxing.trainee.uac.infrastructure.dao.mapper.RolePermissionRelationMapper">
+    <resultMap id="BaseResultMap" type="com.yuxing.trainee.uac.infrastructure.dao.model.RolePermissionRelationPO">
+        <id column="id" property="id"/>
+        <result column="role_id" property="roleId"/>
+        <result column="permission_id" property="permissionId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, role_id, permission_id
+    </sql>
+
+    <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_role_permission_relation
+        WHERE
+            id = #{id}
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM
+            uac_role_permission_relation
+        WHERE
+            id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.RolePermissionRelationPO" useGeneratedKeys="true" keyProperty="id">
+        insert into uac_role_permission_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="permissionId != null">
+                permission_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="roleId != null">
+                #{roleId},
+            </if>
+            <if test="permissionId != null">
+                #{permissionId},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.RolePermissionRelationPO">
+        UPDATE uac_role_permission_relation
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+            <if test="permissionId != null">
+                permission_id = #{permissionId},
+            </if>
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

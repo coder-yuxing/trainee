@@ -1,0 +1,73 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: trainee-miaosha-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/miaosha?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    # druid 监控配置
+    druid:
+      filters: stat,wall,log4j2
+      web-stat-filter:
+        # 启用StatFilter
+        enabled: true
+        # 配置过滤规则
+        url-pattern: /*
+        # 忽略不必要的url
+#        exclusions:
+#         - '*.js'
+#         - '*.gif'
+#         - '*.jpg'
+#         - '*.png'
+#         - '*.css'
+#         - '*.ico'
+#         - '/druid/*'
+        session-stat-enable: tr
+        session-stat-max-count: 1000
+      # 启用内置监控页面
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        # 设置登录用户名 密码
+        login-username: admin
+        login-password: 123
+        #白名单（如果allow没有配置或者为空，则允许所有访问）
+        allow: 127.0.0.1
+        #黑名单（deny优先于allow，如果在deny列表中，就算在allow列表中，也会被拒绝）
+        deny:
+  thymeleaf:
+    enabled: true
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: html
+    mode: HTML
+    servlet:
+      content-type: text/html
+    cache: false
+
+feign:
+  httpclient:
+    enabled: true
+
+mybatis:
+  mapper-locations: classpath:com/yuxing/trainee/miaosha/infrastructure/dao/xml/*.xml
+  type-aliases-package: com.yuxing.trainee.miaosha.infrastructure.dao.model
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+
+miaosha:
+  remote-service:
+    auth: trainee-auth-service
+    uac: trainee-uac-service

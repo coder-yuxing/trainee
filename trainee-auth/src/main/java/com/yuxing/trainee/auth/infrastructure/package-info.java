@@ -1,0 +1,1 @@
+package com.yuxing.trainee.auth.infrastructure;

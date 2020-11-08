@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuxing.trainee.uac.infrastructure.dao.mapper.ClientRoleMapper">
+    <resultMap id="BaseResultMap" type="com.yuxing.trainee.uac.infrastructure.dao.model.ClientRolePO">
+        <id column="id" property="id"/>
+        <result column="client_id" property="clientId"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, client_id, name
+    </sql>
+
+    <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_client_role
+        WHERE
+            id = #{id}
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM
+            uac_client_role
+        WHERE
+            id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.ClientRolePO" useGeneratedKeys="true" keyProperty="id">
+        insert into uac_client_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="clientId != null">
+                client_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="clientId != null">
+                #{clientId},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.ClientRolePO">
+        UPDATE uac_client_role
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="clientId != null">
+                client_id = #{clientId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

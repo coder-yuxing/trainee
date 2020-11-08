@@ -1,6 +1,7 @@
 package com.yuxing.trainee.search.application.facade;
 
 
+import com.yuxing.trainee.common.core.Pager;
 import com.yuxing.trainee.search.api.command.CreateEsSupplierCommand;
 import com.yuxing.trainee.search.api.command.DeleteEsSupplierCommand;
 import com.yuxing.trainee.search.api.command.UpdateEsSupplierCommand;

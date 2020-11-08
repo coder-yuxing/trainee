@@ -1,0 +1,47 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: trainee-gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: trainee-auth-route
+          uri: lb://trainee-auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: trainee-supplier-route
+          uri: lb://trainee-supplier-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 配置RSA的公钥访问地址
+          jwk-set-uri: http://localhost:8082/auth/rsa/public-keys
+  redis:
+    database: 0
+    port: 6379
+    host: 172.16.106.128
+    password:
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+      - "/auth/oauth/token"

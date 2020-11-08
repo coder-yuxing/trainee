@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuxing.trainee.uac.infrastructure.dao.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.yuxing.trainee.uac.infrastructure.dao.model.UserPO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="password" property="password"/>
+        <result column="avatar" property="avatar"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, `name`, phone, password, avatar, gmt_create, gmt_modified
+    </sql>
+
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_user
+        WHERE
+            id = #{id}
+    </select>
+
+    <select id="getByPhone" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_user
+        WHERE
+            `phone` = #{phone}
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM
+            uac_user
+        WHERE
+            id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserPO" useGeneratedKeys="true" keyProperty="">
+        INSERT INTO uac_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+        </trim>
+        VALUES
+        <trim  prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="avatar != null">
+                #{avatar},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserPO">
+        UPDATE uac_user
+        <set>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="password != null">
+                `password` = #{password},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuxing.trainee.uac.infrastructure.dao.mapper.UserClientRelationMapper">
+    <resultMap id="BaseResultMap" type="com.yuxing.trainee.uac.infrastructure.dao.model.UserClientRelationPO">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="client_id" property="clientId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_id, client_id
+    </sql>
+
+    <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_user_client_relation
+        WHERE
+            id = #{id}
+    </select>
+
+    <select id="getByUserId" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            uac_user_client_relation
+        WHERE
+            user_id = #{userId}
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM
+            uac_user_client_relation
+        WHERE
+            id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserClientRelationPO" useGeneratedKeys="true" keyProperty="id">
+        insert into uac_user_client_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="clientId != null">
+                client_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="clientId != null">
+                #{clientId},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.yuxing.trainee.uac.infrastructure.dao.model.UserClientRelationPO">
+        UPDATE uac_user_client_relation
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="clientId != null">
+                client_id = #{clientId},
+            </if>
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>
