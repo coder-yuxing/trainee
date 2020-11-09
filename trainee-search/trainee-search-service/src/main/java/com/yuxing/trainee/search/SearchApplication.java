@@ -1,22 +1,16 @@
-package com.yuxing.trainee.gateway;
+package com.yuxing.trainee.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-/**
- * 网关服务
- *
- * @author yuding
- */
-@EnableDiscoveryClient
 @SpringBootApplication
 @ConfigurationPropertiesScan
-public class GatewayApplication {
+public class SearchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(SearchApplication.class, args);
     }
+
 
 }

@@ -36,6 +36,7 @@ public class LoginFacadeServiceImpl implements LoginFacadeService {
         param.put("grant_type", "password");
         param.put("username", phone);
         param.put("password", password);
+        param.put("scope", SystemConstant.CLIENT_SCOPE_USER);
         return authRemoteService.postAccessToken(param);
     }
 }

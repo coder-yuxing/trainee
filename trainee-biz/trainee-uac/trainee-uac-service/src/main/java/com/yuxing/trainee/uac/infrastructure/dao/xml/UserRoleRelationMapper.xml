@@ -22,16 +22,16 @@
             id = #{id}
     </select>
 
-    <resultMap id="UserPermissionInClient" type="com.yuxing.trainee.uac.infrastructure.dao.model.ClientPermissionPO">
+    <resultMap id="UserPermissionInClient" type="com.yuxing.trainee.uac.infrastructure.dao.model.UserPermission">
         <result column="permission_id" property="id"/>
-        <result column="name" property="name"/>
+        <result column="scope" property="scope"/>
         <result column="client_id" property="clientId"/>
         <result column="code" property="code"/>
     </resultMap>
 
     <select id="listPermByClientId" resultMap="UserPermissionInClient">
         select
-            t1.client_id, t2.permission_id, t3.name, t3.code
+            t1.client_id, t2.permission_id, t3.code
         from
             uac_user_role_relation t1
             join uac_role_permission_relation t2 on t2.role_id = t1.id

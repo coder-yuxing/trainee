@@ -17,7 +17,6 @@ public enum ResultCode implements BaseEnum {
     NOT_FOUND(404, "Not Found"),
     METHOD_NOT_ALLOWED(405, "Method Not Allowed"),
     SESSION_TIMEOUT(440, "Session Timeout"),
-
     INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
     ;
 

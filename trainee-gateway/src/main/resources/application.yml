@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   application:
-    name: trainee-gateway-service
+    name: @artifactId@
   cloud:
     nacos:
       discovery:
@@ -18,7 +18,13 @@ spring:
         - id: trainee-supplier-route
           uri: lb://trainee-supplier-service
           predicates:
-            - Path=/api/**
+            - Path=/api/suppliers/**
+          filters:
+            - StripPrefix=1
+        - id: trainee-miaosha-route
+          uri: lb://trainee-miaosha-service
+          predicates:
+            - Path=/api/miaosha/**
           filters:
             - StripPrefix=1
   security:
@@ -26,22 +32,25 @@ spring:
       resourceserver:
         jwt:
           # 配置RSA的公钥访问地址
-          jwk-set-uri: http://localhost:8082/auth/rsa/public-keys
+          jwk-set-uri: http://localhost:8080/oauth/rsa/public-keys
   redis:
     database: 0
     port: 6379
     host: 172.16.106.128
     password:
 
-logging:
-  level:
-    root: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
+#    org.springframework.web: DEBUG
+#    org.springframework.security: DEBUG
+#    org.springframework.security.oauth2: DEBUG
 
-secure:
-  ignore:
-    urls: #配置白名单路径
+trainee-gateway:
+  security:
+    #配置白名单路径
+    whitelist:
       - "/actuator/**"
       - "/auth/oauth/token"
+      - "api/miaosha/druid/**"
+      - "/api/miaosha/login"

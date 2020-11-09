@@ -12,75 +12,16 @@
 
     <artifactId>trainee-auth</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>trainee-auth</name>
     <description>认证中心</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.yuxing</groupId>
-            <artifactId>trainee-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+    <modules>
+        <module>trainee-auth-service</module>
+        <module>trainee-auth-api</module>
+    </modules>
 
-        <dependency>
-            <groupId>com.yuxing</groupId>
-            <artifactId>trainee-uac-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!-- spring dependency start -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <!-- spring dependency end -->
-
-        <!-- db dependency start -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- db dependency end -->
-
-    </dependencies>
 
     <build>
         <plugins>

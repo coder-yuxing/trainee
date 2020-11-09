@@ -1,6 +1,7 @@
 package com.yuxing.trainee.uac.infrastructure.dao.mapper;
 
 import com.yuxing.trainee.uac.infrastructure.dao.model.ClientPermissionPO;
+import com.yuxing.trainee.uac.infrastructure.dao.model.UserPermission;
 import com.yuxing.trainee.uac.infrastructure.dao.model.UserRoleRelationPO;
 import org.apache.ibatis.annotations.Param;
 
@@ -54,5 +55,5 @@ public interface UserRoleRelationMapper {
      * @param clientId 客户端ID
      * @return 用户在指定客户端下的权限列表
      */
-    List<ClientPermissionPO> listPermByClientId(@Param("userId") Long userId, @Param("clientId") String clientId);
+    List<UserPermission> listPermByClientId(@Param("userId") Long userId, @Param("clientId") String clientId);
 }

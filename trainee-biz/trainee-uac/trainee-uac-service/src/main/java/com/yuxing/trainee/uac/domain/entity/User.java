@@ -1,6 +1,6 @@
 package com.yuxing.trainee.uac.domain.entity;
 
-import com.yuxing.trainee.uac.domain.valueobject.ClientPermission;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
@@ -49,6 +49,14 @@ public class User {
     /**
      * 可访问客户端及权限
      */
-    private Set<ClientPermission> permissions;
+    private Set<Permission> permissions;
+
+    @Data
+    @AllArgsConstructor
+    public static class Permission {
+        private String clientId;
+        private Set<String> permissions;
+    }
+
 
 }

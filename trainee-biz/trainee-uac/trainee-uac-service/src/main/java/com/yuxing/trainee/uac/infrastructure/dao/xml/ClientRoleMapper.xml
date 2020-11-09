@@ -6,10 +6,11 @@
         <id column="id" property="id"/>
         <result column="client_id" property="clientId"/>
         <result column="name" property="name"/>
+        <result column="scope" property="scope"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, client_id, name
+        id, client_id, `name`, `scope`
     </sql>
 
     <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -38,7 +39,10 @@
                 client_id,
             </if>
             <if test="name != null">
-                name,
+                `name`,
+            </if>
+            <if test="scope != null">
+                `scope`,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -50,6 +54,9 @@
             </if>
             <if test="name != null">
                 #{name},
+            </if>
+            <if test="scope != null">
+                #{scope},
             </if>
         </trim>
     </insert>
@@ -64,7 +71,10 @@
                 client_id = #{clientId},
             </if>
             <if test="name != null">
-                name = #{name},
+                `name` = #{name},
+            </if>
+            <if test="scope != null">
+                `scope` = #{scope},
             </if>
         </set>
         WHERE

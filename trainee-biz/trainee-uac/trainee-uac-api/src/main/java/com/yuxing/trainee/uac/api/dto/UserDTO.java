@@ -2,6 +2,7 @@ package com.yuxing.trainee.uac.api.dto;
 
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
