@@ -1,9 +1,9 @@
-package com.yuxing.trainee.miaosha.application.facade.impl;
+package com.yuxing.trainee.seckill.application.facade.impl;
 
-import com.yuxing.trainee.miaosha.application.facade.LoginFacadeService;
-import com.yuxing.trainee.miaosha.infrastructure.constant.SystemConstant;
-import com.yuxing.trainee.miaosha.infrastructure.rpc.AuthRemoteService;
-import com.yuxing.trainee.miaosha.infrastructure.rpc.UserRemoteService;
+import com.yuxing.trainee.seckill.application.facade.LoginFacadeService;
+import com.yuxing.trainee.seckill.infrastructure.constant.SystemConstant;
+import com.yuxing.trainee.seckill.infrastructure.rpc.AuthRemoteService;
+import com.yuxing.trainee.seckill.infrastructure.rpc.UserRemoteService;
 import com.yuxing.trainee.uac.api.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

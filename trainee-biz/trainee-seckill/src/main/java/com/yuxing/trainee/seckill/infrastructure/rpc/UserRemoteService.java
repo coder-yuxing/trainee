@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha.infrastructure.rpc;
+package com.yuxing.trainee.seckill.infrastructure.rpc;
 
 import com.yuxing.trainee.uac.api.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;

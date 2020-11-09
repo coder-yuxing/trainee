@@ -60,8 +60,8 @@ feign:
     enabled: true
 
 mybatis:
-  mapper-locations: classpath:com/yuxing/trainee/miaosha/infrastructure/dao/xml/*.xml
-  type-aliases-package: com.yuxing.trainee.miaosha.infrastructure.dao.model
+  mapper-locations: classpath:com/yuxing/trainee/seckill/infrastructure/dao/xml/*.xml
+  type-aliases-package: com.yuxing.trainee.seckill.infrastructure.dao.model
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100

@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha.application.facade;
+package com.yuxing.trainee.seckill.application.facade;
 
 public interface LoginFacadeService {
 

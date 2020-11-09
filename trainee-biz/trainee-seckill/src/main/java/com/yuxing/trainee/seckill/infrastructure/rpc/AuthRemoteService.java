@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha.infrastructure.rpc;
+package com.yuxing.trainee.seckill.infrastructure.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

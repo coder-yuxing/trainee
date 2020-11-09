@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha;
+package com.yuxing.trainee.seckill;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +15,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @EnableFeignClients
 @MapperScan("com.yuxing.trainee.miaosha.infrastructure.dao.mapper")
-public class MiaoShaApplication {
+public class SeckillApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MiaoShaApplication.class, args);
+        SpringApplication.run(SeckillApplication.class, args);
     }
 }

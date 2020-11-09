@@ -1,7 +1,7 @@
-package com.yuxing.trainee.miaosha.interfaces;
+package com.yuxing.trainee.seckill.interfaces;
 
 import com.yuxing.trainee.common.core.Result;
-import com.yuxing.trainee.miaosha.application.facade.LoginFacadeService;
+import com.yuxing.trainee.seckill.application.facade.LoginFacadeService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("/miaosha")
+@RequestMapping("/seckills")
 public class LoginController {
 
     private final LoginFacadeService loginFacadeService;

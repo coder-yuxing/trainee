@@ -21,7 +21,7 @@
         <!-- 供应商服务模块 -->
         <module>trainee-supplier</module>
         <!-- 秒杀项目      -->
-        <module>trainee-miaosha</module>
+        <module>trainee-seckill</module>
         <!--  用户系统      -->
         <module>trainee-uac</module>
     </modules>

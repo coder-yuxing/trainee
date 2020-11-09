@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha.infrastructure.constant;
+package com.yuxing.trainee.seckill.infrastructure.constant;
 
 /**
  * 系统常量

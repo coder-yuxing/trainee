@@ -9,11 +9,11 @@
         <relativePath/>
     </parent>
 
-    <artifactId>trainee-miaosha</artifactId>
+    <artifactId>trainee-seckill</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>trainee-miaosha</name>
+    <name>trainee-seckill</name>
     <description>秒杀项目</description>
 
     <dependencies>

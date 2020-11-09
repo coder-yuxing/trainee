@@ -1,4 +1,4 @@
-package com.yuxing.trainee.miaosha.interfaces;
+package com.yuxing.trainee.seckill.interfaces;
 
 import com.yuxing.trainee.auth.api.dto.AuthUser;
 import com.yuxing.trainee.auth.api.manager.LoginUserManager;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/miaosha")
+@RequestMapping("/seckills")
 public class TestController {
 
     private final LoginUserManager loginUserManager;
