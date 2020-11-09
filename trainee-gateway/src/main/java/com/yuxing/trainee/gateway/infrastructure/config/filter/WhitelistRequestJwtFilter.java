@@ -1,6 +1,6 @@
-package com.yuxing.trainee.gateway.config.filter;
+package com.yuxing.trainee.gateway.infrastructure.config.filter;
 
-import com.yuxing.trainee.gateway.config.WhiteListConfig;
+import com.yuxing.trainee.gateway.infrastructure.config.WhiteListConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Component
 @AllArgsConstructor
-public class IgnoreUrlsRemoveJwtFilter implements WebFilter {
+public class WhitelistRequestJwtFilter implements WebFilter {
 
     private final WhiteListConfig whiteListConfig;
 

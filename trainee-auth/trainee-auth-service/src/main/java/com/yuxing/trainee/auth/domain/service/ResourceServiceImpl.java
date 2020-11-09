@@ -4,6 +4,7 @@ import com.yuxing.trainee.auth.api.contant.AuthConstant;
 import com.yuxing.trainee.auth.api.dto.ResourceConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -27,8 +28,7 @@ public class ResourceServiceImpl {
         resourceRolesMap = new TreeMap<>();
         TreeSet<String> treeSet = new TreeSet<>();
         treeSet.add("trainee.miaosha");
-
-        resourceRolesMap.put("/api/miaosha/hello", new ResourceConfig("/api/miaosha/hello", treeSet));
-        redisTemplate.opsForHash().putAll(AuthConstant.RESOURCE_KEY, resourceRolesMap);
+        resourceRolesMap.put("/api/seckills/hello", new ResourceConfig("/api/seckills/hello", treeSet));
+        redisTemplate.opsForHash().putAll(AuthConstant.RESOURCE_KEY + HttpMethod.GET.name(), resourceRolesMap);
     }
 }

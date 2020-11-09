@@ -1,4 +1,4 @@
-package com.yuxing.trainee.gateway.config.handler;
+package com.yuxing.trainee.gateway.infrastructure.config.handler;
 
 import cn.hutool.json.JSONUtil;
 import com.yuxing.trainee.common.core.Result;

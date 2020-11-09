@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: trainee-miaosha-service
+    name: trainee-seckills-service
   cloud:
     nacos:
       discovery:

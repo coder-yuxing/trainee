@@ -1,4 +1,4 @@
-package com.yuxing.trainee.gateway.config;
+package com.yuxing.trainee.gateway.infrastructure.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

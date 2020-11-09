@@ -4,6 +4,7 @@ import com.yuxing.trainee.common.core.Logic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpMethod;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -29,6 +30,12 @@ public class ResourceConfig implements Serializable {
      * 资源路径
      */
     private String sourcePath;
+
+    /**
+     * 请求方法：
+     * @see HttpMethod
+     */
+    private String method;
 
     /**
      * 要求的权限

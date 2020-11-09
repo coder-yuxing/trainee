@@ -1,10 +1,11 @@
-package com.yuxing.trainee.gateway.config;
+package com.yuxing.trainee.gateway.infrastructure.config;
 
 import cn.hutool.core.util.ArrayUtil;
 import com.yuxing.trainee.auth.api.contant.AuthConstant;
-import com.yuxing.trainee.gateway.config.filter.IgnoreUrlsRemoveJwtFilter;
-import com.yuxing.trainee.gateway.config.handler.RestAuthenticationEntryPoint;
-import com.yuxing.trainee.gateway.config.handler.RestfulAccessDeniedHandler;
+import com.yuxing.trainee.gateway.infrastructure.auth.AuthorizationManager;
+import com.yuxing.trainee.gateway.infrastructure.config.filter.WhitelistRequestJwtFilter;
+import com.yuxing.trainee.gateway.infrastructure.config.handler.RestAuthenticationEntryPoint;
+import com.yuxing.trainee.gateway.infrastructure.config.handler.RestfulAccessDeniedHandler;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +33,7 @@ public class ResourceServerConfig {
 
     private final WhiteListConfig whiteListConfig;
     private final AuthorizationManager authorizationManager;
-    private final IgnoreUrlsRemoveJwtFilter ignoreUrlsRemoveJwtFilter;
+    private final WhitelistRequestJwtFilter whitelistRequestJwtFilter;
     private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
@@ -43,7 +44,7 @@ public class ResourceServerConfig {
         // 自定义处理JWT请求头过期或签名错误的结果
         http.oauth2ResourceServer().authenticationEntryPoint(this.restAuthenticationEntryPoint);
         // 对白名单路径，直接移除JWT请求头
-        http.addFilterBefore(this.ignoreUrlsRemoveJwtFilter, SecurityWebFiltersOrder.AUTHENTICATION);
+        http.addFilterBefore(this.whitelistRequestJwtFilter, SecurityWebFiltersOrder.AUTHENTICATION);
         http.authorizeExchange()
                 // 白名单配置
                 .pathMatchers(ArrayUtil.toArray(this.whiteListConfig.getWhitelist(),String.class)).permitAll()

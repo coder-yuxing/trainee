@@ -1,8 +1,7 @@
-package com.yuxing.trainee.gateway.config.handler;
+package com.yuxing.trainee.gateway.infrastructure.config.handler;
 
 import cn.hutool.json.JSONUtil;
 import com.yuxing.trainee.common.core.Result;
-import com.yuxing.trainee.common.core.ResultCode;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

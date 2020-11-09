@@ -1,4 +1,4 @@
-package com.yuxing.trainee.gateway.config.filter;
+package com.yuxing.trainee.gateway.infrastructure.config.filter;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;

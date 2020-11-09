@@ -21,10 +21,10 @@ spring:
             - Path=/api/suppliers/**
           filters:
             - StripPrefix=1
-        - id: trainee-miaosha-route
-          uri: lb://trainee-miaosha-service
+        - id: trainee-seckills-route
+          uri: lb://trainee-seckills-service
           predicates:
-            - Path=/api/miaosha/**
+            - Path=/api/seckills/**
           filters:
             - StripPrefix=1
   security:
@@ -52,5 +52,5 @@ trainee-gateway:
     whitelist:
       - "/actuator/**"
       - "/auth/oauth/token"
-      - "api/miaosha/druid/**"
-      - "/api/miaosha/login"
+      - "/api/seckills/druid/**"
+      - "/api/seckills/login"

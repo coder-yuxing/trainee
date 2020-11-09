@@ -10,7 +10,7 @@ public interface AuthConstant {
 
     String TOKEN_TYPE = "Bearer ";
 
-    String RESOURCE_KEY = "AUTH:RESOURCE_ROLES_MAP";
+    String RESOURCE_KEY = "AUTH:RESOURCE_ROLES_MAP:";
 
     String USER_MSG_HEADER = "trainee-user";
 }

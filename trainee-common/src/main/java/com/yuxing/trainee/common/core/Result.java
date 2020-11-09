@@ -1,6 +1,8 @@
 package com.yuxing.trainee.common.core;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 统一接口响应格式
@@ -72,6 +74,16 @@ public class Result<T> implements Serializable {
         apiResult.setData(data);
         apiResult.setMessage(msg);
         return apiResult;
+    }
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> result = new HashMap<>(3);
+        result.put("code", this.code);
+        result.put("message", this.message);
+        if (this.data != null) {
+            result.put("data", this.data);
+        }
+        return result;
     }
 
     public Integer getCode() {
